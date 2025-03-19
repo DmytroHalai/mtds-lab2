@@ -31,7 +31,7 @@ public class DoublyLinkedList {
         }
     }
 
-    public void insert(char element, int index) throws Exception {
+    public void insert(char element, int index){
         checkIndex(index);
         Node newNode = new Node(element);
 
@@ -69,13 +69,13 @@ public class DoublyLinkedList {
         }
     }
 
-    public void checkIndex(int index) throws Exception {
+    public void checkIndex(int index) throws IndexOutOfBoundsException {
         if (index < 0 || index > length()) {
-            throw new Exception("Index is not valid");
+            throw new IndexOutOfBoundsException("Index is not valid");
         }
     }
 
-    public char delete(int index) throws Exception {
+    public char delete(int index){
         checkIndex(index);
         char result;
         Node current = head;
@@ -120,7 +120,7 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
-    public char get(int index) throws Exception {
+    public char get(int index){
         checkIndex(index);
         Node current = head;
         int currentIndex = 0;
