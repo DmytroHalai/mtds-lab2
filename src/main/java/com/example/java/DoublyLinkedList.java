@@ -1,72 +1,25 @@
 package com.example.java;
 
+import java.util.ArrayList;
+
 public class DoublyLinkedList {
-    public Node head;
-    public Node tail;
+    private ArrayList<Character> list;
 
     public DoublyLinkedList() {
-        head = null;
-        tail = null;
+        list = new ArrayList<>();
     }
 
     public int length() {
-        int length = 0;
-        Node current = head;
-        while (current != null) {
-            length++;
-            current = current.next;
-        }
-        return length;
+        return list.size();
     }
 
     public void append(char data) {
-        Node newNode = new Node(data);
-        if (head == null) {
-            head = newNode;
-            tail = newNode;
-        } else {
-            tail.next = newNode;
-            newNode.prev = tail;
-            tail = newNode;
-        }
+        list.add(data);
     }
 
     public void insert(char element, int index){
         checkIndex(index);
-        Node newNode = new Node(element);
-
-        if (index == 0) {
-            if (head == null) {
-                head = newNode;
-                tail = newNode;
-            } else {
-                newNode.next = head;
-                head.prev = newNode;
-                head = newNode;
-            }
-        } else if (index == length()) {
-            if (tail == null) {
-                head = newNode;
-                tail = newNode;
-            } else {
-                tail.next = newNode;
-                newNode.prev = tail;
-                tail = newNode;
-            }
-        } else {
-            Node current = head;
-            int curentIndex = 0;
-            while (curentIndex < index) {
-                current = current.next;
-                curentIndex++;
-            }
-            newNode.next = current;
-            newNode.prev = current.prev;
-            if (current.prev != null) {
-                current.prev.next = newNode;
-            }
-            current.prev = newNode;
-        }
+        list.add(index, element);
     }
 
     private void checkIndex(int index) throws IndexOutOfBoundsException {
@@ -77,132 +30,52 @@ public class DoublyLinkedList {
 
     public char delete(int index){
         checkIndex(index);
-        char result;
-        Node current = head;
-        int currentIndex = 0;
-        while (currentIndex < index) {
-            current = current.next;
-            currentIndex++;
-        }
-        result = current.data;
-        current.prev.next = current.next;
-        current.next.prev = current.prev;
-        return result;
+        return list.remove(index);
     }
 
     public void deleteAll(char el) {
-        Node current = head;
-        while (current != null) {
-            if (current.data == el) {
-                if (current.prev == null) {
-                    head = current.next;
-                    if (head != null) {
-                        head.prev = null;
-                    }
-                } else if (current.next == null) {
-                    tail = current.prev;
-                    tail.next = null;
-                } else {
-                    current.prev.next = current.next;
-                    current.next.prev = current.prev;
-                }
-            }
-            current = current.next;
-        }
+        list.removeIf(c -> c == el);
     }
 
     public void printList() {
-        Node current = head;
-        while (current != null) {
-            System.out.print(current.data + " ");
-            current = current.next;
+        for (Character c : list) {
+            System.out.print(c + " ");
         }
         System.out.println();
     }
 
     public char get(int index){
-        checkIndex(index);
-        Node current = head;
-        int currentIndex = 0;
-        while (currentIndex != index) {
-            current = current.next;
-            currentIndex++;
-        }
-        return current.data;
+        return list.get(index);
     }
 
     public DoublyLinkedList clone() {
         DoublyLinkedList clonedList = new DoublyLinkedList();
-        if (head == null) {
-            return clonedList;
-        }
-        Node current = head;
-        while (current != null) {
-            clonedList.append(current.data);
-            current = current.next;
-        }
+        clonedList.list = new ArrayList<>(list);
         return clonedList;
     }
 
     public void reverse(){
-        if (head == null) return;
-        Node current = head;
-        Node temp;
-        while (current != null){
-            temp = current.prev;
-            current.prev = current.next;
-            current.next = temp;
-            current = current.prev;
+        ArrayList<Character> reversedList = new ArrayList<>();
+        for (int i = length() - 1; i >= 0; i--) {
+            reversedList.add(list.get(i));
         }
-        temp = head;
-        head = tail;
-        tail = temp;
+        list = reversedList;
     }
 
     public int findFirst(char el){
-        Node current = head;
-        int currentIndex = 0;
-        while (current != null){
-            if (current.data == el){
-                return currentIndex;
-            }
-            current = current.next;
-            currentIndex++;
-        }
-        return -1;
+        return list.indexOf(el);
     }
 
     public int findLast(char el) {
-        Node current = tail;
-        int currentIndex = length()-1;
-        while (current != null){
-            if (current.data == el){
-                return currentIndex;
-            }
-            current = current.prev;
-            currentIndex--;
-        }
-        return -1;
+        return list.lastIndexOf(el);
     }
 
     public void clear(){
-        head = null;
+        list.clear();
     }
 
     public void extend(DoublyLinkedList list2) {
-        if (list2.head == null) {
-            return;
-        }
-        Node list1Tail = tail;
-        Node list2Head = list2.head;
-        while (list2Head != null) {
-            Node newNode = new Node(list2Head.data);
-            list1Tail.next = newNode;
-            newNode.prev = list1Tail;
-            list1Tail = newNode;
-            list2Head = list2Head.next;
-        }
-        tail = list1Tail;
+        list.addAll(list2.list);
     }
 
 }
