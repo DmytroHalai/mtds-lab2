@@ -10,13 +10,7 @@ public class DoublyLinkedList {
     }
 
     public int length() {
-        int length = 0;
-        Node current = head;
-        while (current != null) {
-            length++;
-            current = current.next;
-        }
-        return length;
+        return list.size();
     }
 
     public void append(char data) {
