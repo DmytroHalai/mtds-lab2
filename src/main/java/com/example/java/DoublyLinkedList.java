@@ -189,6 +189,20 @@ public class DoublyLinkedList {
         head = null;
     }
 
-
+    public void extend(DoublyLinkedList list2) {
+        if (list2.head == null) {
+            return;
+        }
+        Node list1Tail = tail;
+        Node list2Head = list2.head;
+        while (list2Head != null) {
+            Node newNode = new Node(list2Head.data);
+            list1Tail.next = newNode;
+            newNode.prev = list1Tail;
+            list1Tail = newNode;
+            list2Head = list2Head.next;
+        }
+        tail = list1Tail;
+    }
 
 }
