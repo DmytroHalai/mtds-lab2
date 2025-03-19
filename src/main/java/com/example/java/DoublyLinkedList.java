@@ -63,16 +63,7 @@ public class DoublyLinkedList {
     }
 
     public int findFirst(char el){
-        Node current = head;
-        int currentIndex = 0;
-        while (current != null){
-            if (current.data == el){
-                return currentIndex;
-            }
-            current = current.next;
-            currentIndex++;
-        }
-        return -1;
+        return list.indexOf(el);
     }
 
     public int findLast(char el) {
