@@ -1,7 +1,7 @@
 package com.example.java;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args){
         DoublyLinkedList list = new DoublyLinkedList();
 
         list.append('1');
@@ -31,8 +31,10 @@ public class Main {
         DoublyLinkedList list2 = list.clone();
         list2.printList();
 
+        System.out.println("123123123");
         list2.reverse();
         list2.printList();
+        System.out.println(list2.head.data);
 
         System.out.println(list2.findFirst('1'));
         System.out.println(list2.findFirst('9'));
