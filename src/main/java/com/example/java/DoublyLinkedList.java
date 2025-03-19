@@ -146,19 +146,30 @@ public class DoublyLinkedList {
 
     public void reverse(){
         if (head == null) return;
-
         Node current = head;
         Node temp = null;
-
         while (current != null){
             temp = current.prev;
             current.prev = current.next;
             current.next = temp;
             current = current.prev;
         }
-
         temp = head;
         head = tail;
         tail = temp;
     }
+
+    public int findFirst(char el){
+        Node current = head;
+        int currentIndex = 0;
+        while (current != null){
+            if (current.data == el){
+                return currentIndex;
+            }
+            current = current.next;
+            currentIndex++;
+        }
+        return -1;
+    }
+
 }

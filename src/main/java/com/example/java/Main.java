@@ -33,5 +33,8 @@ public class Main {
 
         list2.reverse();
         list2.printList();
+
+        System.out.println(list2.findFirst('1'));
+        System.out.println(list2.findFirst('9'));
     }
 }
