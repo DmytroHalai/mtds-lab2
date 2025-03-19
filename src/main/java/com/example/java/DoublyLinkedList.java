@@ -18,4 +18,16 @@ public class DoublyLinkedList {
         }
         return length;
     }
+
+    public void append(char data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        }
+    }
 }
