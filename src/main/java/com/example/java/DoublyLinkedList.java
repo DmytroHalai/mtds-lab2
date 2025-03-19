@@ -89,4 +89,25 @@ public class DoublyLinkedList {
         current.next.prev = current.prev;
         return result;
     }
+
+    public void deleteAll(char el) {
+        Node current = head;
+        while (current != null) {
+            if (current.data == el) {
+                if (current.prev == null) {
+                    head = current.next;
+                    if (head != null) {
+                        head.prev = null;
+                    }
+                } else if (current.next == null) {
+                    tail = current.prev;
+                    tail.next = null;
+                } else {
+                    current.prev.next = current.next;
+                    current.next.prev = current.prev;
+                }
+            }
+            current = current.next;
+        }
+    }
 }
