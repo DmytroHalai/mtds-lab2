@@ -1,12 +1,12 @@
 package com.example.java;
 
+import java.util.ArrayList;
+
 public class DoublyLinkedList {
-    public Node head;
-    public Node tail;
+    private final ArrayList<Character> list;
 
     public DoublyLinkedList() {
-        head = null;
-        tail = null;
+        list = new ArrayList<>();
     }
 
     public int length() {
