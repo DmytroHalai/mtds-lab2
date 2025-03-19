@@ -74,4 +74,19 @@ public class DoublyLinkedList {
             throw new Exception("Index is not valid");
         }
     }
+
+    public char delete(int index) throws Exception {
+        checkIndex(index);
+        char result;
+        Node current = head;
+        int currentIndex = 0;
+        while (currentIndex < index) {
+            current = current.next;
+            currentIndex++;
+        }
+        result = current.data;
+        current.prev.next = current.next;
+        current.next.prev = current.prev;
+        return result;
+    }
 }
