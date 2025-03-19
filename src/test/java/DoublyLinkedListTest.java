@@ -6,14 +6,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class DoublyLinkedListTest {
 
     @Test
-    void testDoublyLinkedList(){
+    void testDoublyLinkedList() {
         DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
         assertNull(doublyLinkedList.head, "Head must be null");
         assertNull(doublyLinkedList.tail, "Tail must be null");
     }
 
     @Test
-    void testLength(){
+    void testLength() {
         DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
 
         int result = doublyLinkedList.length();
@@ -28,7 +28,7 @@ class DoublyLinkedListTest {
     }
 
     @Test
-    void testAppend(){
+    void testAppend() {
         DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
 
         doublyLinkedList.append('1');
@@ -41,7 +41,7 @@ class DoublyLinkedListTest {
     }
 
     @Test
-    void testInsert(){
+    void testInsert() {
         DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
 
         doublyLinkedList.insert('1', 0);
@@ -52,7 +52,7 @@ class DoublyLinkedListTest {
     }
 
     @Test
-    void testDelete(){
+    void testDelete() {
         DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
 
         doublyLinkedList.append('1');
@@ -63,6 +63,25 @@ class DoublyLinkedListTest {
 
         char deletedChar = doublyLinkedList.delete(2);
         assertEquals('3', deletedChar, "Deleted char must be '3'");
+        assertEquals(4, doublyLinkedList.length(), "Length must be 4");
+    }
+
+    @Test
+    void testDeleteAll() {
+        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+
+        doublyLinkedList.append('1');
+        doublyLinkedList.append('2');
+        doublyLinkedList.append('3');
+        doublyLinkedList.append('4');
+        doublyLinkedList.append('5');
+        doublyLinkedList.append('2');
+        doublyLinkedList.append('2');
+
+        doublyLinkedList.deleteAll('2');
+        assertEquals(4, doublyLinkedList.length(), "Length must be 4");
+
+        doublyLinkedList.deleteAll('9');
         assertEquals(4, doublyLinkedList.length(), "Length must be 4");
     }
 
