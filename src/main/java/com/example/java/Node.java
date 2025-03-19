@@ -1,5 +1,4 @@
 package com.example.java;
 
-
-public class Main {
+public class Node {
 }
