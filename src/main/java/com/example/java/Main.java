@@ -36,5 +36,21 @@ public class Main {
 
         System.out.println(list2.findFirst('1'));
         System.out.println(list2.findFirst('9'));
+
+        list2.insert('1', 0);
+        list2.printList();
+        System.out.println(list2.findLast('1'));
+        System.out.println(list2.findLast('9'));
+
+        list2.clear();
+        System.out.println("lalala");
+        list2.printList();
+        System.out.println("lalala");
+
+        list2.append('9');
+        list2.append('9');
+        list2.append('9');
+        list.extend(list2);
+        list.printList();
     }
 }
