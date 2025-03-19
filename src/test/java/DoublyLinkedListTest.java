@@ -41,7 +41,7 @@ class DoublyLinkedListTest {
     }
 
     @Test
-    void testInsert() throws Exception {
+    void testInsert(){
         DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
 
         doublyLinkedList.insert('1', 0);
@@ -50,4 +50,20 @@ class DoublyLinkedListTest {
 
         assertThrows(IndexOutOfBoundsException.class, () -> doublyLinkedList.insert('2', 3));
     }
+
+    @Test
+    void testDelete(){
+        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+
+        doublyLinkedList.append('1');
+        doublyLinkedList.append('2');
+        doublyLinkedList.append('3');
+        doublyLinkedList.append('4');
+        doublyLinkedList.append('5');
+
+        char deletedChar = doublyLinkedList.delete(2);
+        assertEquals('3', deletedChar, "Deleted char must be '3'");
+        assertEquals(4, doublyLinkedList.length(), "Length must be 4");
+    }
+
 }

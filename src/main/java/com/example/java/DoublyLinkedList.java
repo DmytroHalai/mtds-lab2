@@ -69,7 +69,7 @@ public class DoublyLinkedList {
         }
     }
 
-    public void checkIndex(int index) throws IndexOutOfBoundsException {
+    private void checkIndex(int index) throws IndexOutOfBoundsException {
         if (index < 0 || index > length()) {
             throw new IndexOutOfBoundsException("Index is not valid");
         }
