@@ -30,5 +30,8 @@ public class Main {
 
         DoublyLinkedList list2 = list.clone();
         list2.printList();
+
+        list2.reverse();
+        list2.printList();
     }
 }
