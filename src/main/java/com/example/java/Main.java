@@ -34,7 +34,6 @@ public class Main {
         System.out.println("123123123");
         list2.reverse();
         list2.printList();
-        System.out.println(list2.head.data);
 
         System.out.println(list2.findFirst('1'));
         System.out.println(list2.findFirst('9'));
