@@ -19,40 +19,7 @@ public class DoublyLinkedList {
 
     public void insert(char element, int index){
         checkIndex(index);
-        Node newNode = new Node(element);
-
-        if (index == 0) {
-            if (head == null) {
-                head = newNode;
-                tail = newNode;
-            } else {
-                newNode.next = head;
-                head.prev = newNode;
-                head = newNode;
-            }
-        } else if (index == length()) {
-            if (tail == null) {
-                head = newNode;
-                tail = newNode;
-            } else {
-                tail.next = newNode;
-                newNode.prev = tail;
-                tail = newNode;
-            }
-        } else {
-            Node current = head;
-            int curentIndex = 0;
-            while (curentIndex < index) {
-                current = current.next;
-                curentIndex++;
-            }
-            newNode.next = current;
-            newNode.prev = current.prev;
-            if (current.prev != null) {
-                current.prev.next = newNode;
-            }
-            current.prev = newNode;
-        }
+        list.add(index, element);
     }
 
     private void checkIndex(int index) throws IndexOutOfBoundsException {
