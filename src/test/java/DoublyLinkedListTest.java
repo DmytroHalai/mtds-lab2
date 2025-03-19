@@ -85,4 +85,35 @@ class DoublyLinkedListTest {
         assertEquals(4, doublyLinkedList.length(), "Length must be 4");
     }
 
+    @Test
+    void testGet() {
+        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+
+        doublyLinkedList.append('1');
+        doublyLinkedList.append('2');
+        doublyLinkedList.append('3');
+        doublyLinkedList.append('4');
+        doublyLinkedList.append('5');
+
+        assertEquals('3', doublyLinkedList.get(2), "Char under index 2 must be '3'");
+        assertThrows(IndexOutOfBoundsException.class, () -> doublyLinkedList.get(-1));
+        assertThrows(IndexOutOfBoundsException.class, () -> doublyLinkedList.get(11));
+    }
+
+    @Test
+    void testClone() {
+        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+
+        DoublyLinkedList d2 = doublyLinkedList.clone();
+        assertNull(d2.head);
+
+        doublyLinkedList.append('1');
+        doublyLinkedList.append('2');
+        doublyLinkedList.append('3');
+        doublyLinkedList.append('4');
+        doublyLinkedList.append('5');
+
+        d2 = doublyLinkedList.clone();
+        assertEquals(5, d2.length());
+    }
 }
