@@ -71,7 +71,7 @@ public class DoublyLinkedList {
     }
 
     public void clear(){
-        head = null;
+        list.clear();
     }
 
     public void extend(DoublyLinkedList list2) {
