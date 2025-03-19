@@ -3,7 +3,7 @@ package com.example.java;
 import java.util.ArrayList;
 
 public class DoublyLinkedList {
-    private final ArrayList<Character> list;
+    private ArrayList<Character> list;
 
     public DoublyLinkedList() {
         list = new ArrayList<>();
@@ -50,30 +50,16 @@ public class DoublyLinkedList {
 
     public DoublyLinkedList clone() {
         DoublyLinkedList clonedList = new DoublyLinkedList();
-        if (head == null) {
-            return clonedList;
-        }
-        Node current = head;
-        while (current != null) {
-            clonedList.append(current.data);
-            current = current.next;
-        }
+        clonedList.list = new ArrayList<>(list);
         return clonedList;
     }
 
     public void reverse(){
-        if (head == null) return;
-        Node current = head;
-        Node temp;
-        while (current != null){
-            temp = current.prev;
-            current.prev = current.next;
-            current.next = temp;
-            current = current.prev;
+        ArrayList<Character> reversedList = new ArrayList<>();
+        for (int i = length() - 1; i >= 0; i--) {
+            reversedList.add(list.get(i));
         }
-        temp = head;
-        head = tail;
-        tail = temp;
+        list = reversedList;
     }
 
     public int findFirst(char el){
