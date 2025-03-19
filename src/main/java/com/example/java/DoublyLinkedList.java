@@ -185,5 +185,10 @@ public class DoublyLinkedList {
         return -1;
     }
 
+    public void clear(){
+        head = null;
+    }
+
+
 
 }
