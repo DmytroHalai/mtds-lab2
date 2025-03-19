@@ -116,4 +116,54 @@ class DoublyLinkedListTest {
         d2 = doublyLinkedList.clone();
         assertEquals(5, d2.length());
     }
+
+    @Test
+    void testReverse(){
+        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+
+        doublyLinkedList.append('1');
+        doublyLinkedList.append('2');
+        doublyLinkedList.append('3');
+        doublyLinkedList.append('4');
+        doublyLinkedList.append('5');
+
+        doublyLinkedList.reverse();
+
+        assertEquals('5', doublyLinkedList.head.data);
+        assertEquals('1', doublyLinkedList.tail.data);
+        assertEquals(5, doublyLinkedList.length());
+    }
+
+    @Test
+    void testFindFirst() {
+        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+
+        doublyLinkedList.append('1');
+        doublyLinkedList.append('2');
+        doublyLinkedList.append('3');
+        doublyLinkedList.append('4');
+        doublyLinkedList.append('5');
+        doublyLinkedList.append('5');
+        doublyLinkedList.append('5');
+
+        assertEquals(4, doublyLinkedList.findFirst('5'));
+        assertEquals(-1, doublyLinkedList.findFirst('9'));
+    }
+
+    @Test
+    void testFindLast() {
+        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+
+        doublyLinkedList.append('1');
+        doublyLinkedList.append('2');
+        doublyLinkedList.append('3');
+        doublyLinkedList.append('4');
+        doublyLinkedList.append('5');
+        doublyLinkedList.append('1');
+        doublyLinkedList.append('5');
+
+        assertEquals(5, doublyLinkedList.findLast('1'));
+        assertEquals(-1, doublyLinkedList.findLast('9'));
+    }
+
 }

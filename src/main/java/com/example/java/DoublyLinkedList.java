@@ -147,7 +147,7 @@ public class DoublyLinkedList {
     public void reverse(){
         if (head == null) return;
         Node current = head;
-        Node temp = null;
+        Node temp;
         while (current != null){
             temp = current.prev;
             current.prev = current.next;
