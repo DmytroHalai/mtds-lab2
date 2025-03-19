@@ -38,23 +38,14 @@ public class DoublyLinkedList {
     }
 
     public void printList() {
-        Node current = head;
-        while (current != null) {
-            System.out.print(current.data + " ");
-            current = current.next;
+        for (Character c : list) {
+            System.out.print(c + " ");
         }
         System.out.println();
     }
 
     public char get(int index){
-        checkIndex(index);
-        Node current = head;
-        int currentIndex = 0;
-        while (currentIndex != index) {
-            current = current.next;
-            currentIndex++;
-        }
-        return current.data;
+        return list.get(index);
     }
 
     public DoublyLinkedList clone() {
