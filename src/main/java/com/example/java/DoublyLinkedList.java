@@ -67,16 +67,7 @@ public class DoublyLinkedList {
     }
 
     public int findLast(char el) {
-        Node current = tail;
-        int currentIndex = length()-1;
-        while (current != null){
-            if (current.data == el){
-                return currentIndex;
-            }
-            current = current.prev;
-            currentIndex--;
-        }
-        return -1;
+        return list.lastIndexOf(el);
     }
 
     public void clear(){
