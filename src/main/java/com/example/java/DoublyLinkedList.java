@@ -119,4 +119,31 @@ public class DoublyLinkedList {
         }
         System.out.println();
     }
+
+    public char get(int index) throws Exception {
+        checkIndex(index);
+        Node current = head;
+        int currentIndex = 0;
+        while (currentIndex != index) {
+            current = current.next;
+            currentIndex++;
+        }
+        return current.data;
+    }
+
+    public DoublyLinkedList clone() {
+        DoublyLinkedList clonedList = new DoublyLinkedList();
+        if (head == null) {
+            return clonedList;
+        }
+        Node current = head;
+        while (current != null) {
+            clonedList.append(current.data);
+            current = current.next;
+        }
+        return clonedList;
+    }
+
+
+
 }

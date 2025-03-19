@@ -26,5 +26,9 @@ public class Main {
         list.deleteAll('e');
         list.printList();
 
+        System.out.println(list.get(2));
+
+        DoublyLinkedList list2 = list.clone();
+        list2.printList();
     }
 }
