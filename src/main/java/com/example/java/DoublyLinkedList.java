@@ -30,17 +30,7 @@ public class DoublyLinkedList {
 
     public char delete(int index){
         checkIndex(index);
-        char result;
-        Node current = head;
-        int currentIndex = 0;
-        while (currentIndex < index) {
-            current = current.next;
-            currentIndex++;
-        }
-        result = current.data;
-        current.prev.next = current.next;
-        current.next.prev = current.prev;
-        return result;
+        return list.remove(index);
     }
 
     public void deleteAll(char el) {
