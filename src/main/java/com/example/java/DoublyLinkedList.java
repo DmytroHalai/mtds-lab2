@@ -110,4 +110,13 @@ public class DoublyLinkedList {
             current = current.next;
         }
     }
+
+    public void printList() {
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        System.out.println();
+    }
 }
