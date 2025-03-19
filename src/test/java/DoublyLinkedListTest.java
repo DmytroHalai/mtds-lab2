@@ -199,7 +199,7 @@ class DoublyLinkedListTest {
 
         doublyLinkedList.extend(doublyLinkedList1);
         assertEquals(7, doublyLinkedList.length());
-        assertEquals('4', doublyLinkedList.tail.data);
+        assertEquals('5', doublyLinkedList.tail.data);
 
         doublyLinkedList1.append('2');
         doublyLinkedList1.append('2');
