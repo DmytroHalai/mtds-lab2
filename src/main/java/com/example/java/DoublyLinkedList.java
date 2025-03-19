@@ -14,15 +14,7 @@ public class DoublyLinkedList {
     }
 
     public void append(char data) {
-        Node newNode = new Node(data);
-        if (head == null) {
-            head = newNode;
-            tail = newNode;
-        } else {
-            tail.next = newNode;
-            newNode.prev = tail;
-            tail = newNode;
-        }
+        list.add(data);
     }
 
     public void insert(char element, int index){
